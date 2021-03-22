@@ -2,10 +2,10 @@
 
 <h1>Bands</h1>
 
-<table class="table">
+<table class="table text-center">
   <thead>
     <tr>
-      <th>Name</th>
+      <th class="text-justify">Name</th>
       <th>Members</th>
       <th>Debut date</th>
       <th>Kind</th>
@@ -18,7 +18,7 @@
   <tbody>
     <% @bands.each do |band| %>
       <tr>
-        <td><%= band.name %></td>
+        <td class="text-justify"><%= band.name %></td>
         <td><%= band.members %></td>
         <td><%= band.debut_date %></td>
         <td><%= band.kind %></td>
