@@ -2,7 +2,7 @@
 
 <h1>Bands</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -10,6 +10,7 @@
       <th>Debut date</th>
       <th>Kind</th>
       <th>Concert</th>
+      <th>Total Attendence</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= band.debut_date %></td>
         <td><%= band.kind %></td>
         <td><%= band.concert_count %></td>
+        <td><%= band.total_attendence %></td>
         <td><%= link_to 'Show', band %></td>
         <td><%= link_to 'Edit', edit_band_path(band) %></td>
         <td><%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>

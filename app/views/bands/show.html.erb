@@ -24,17 +24,17 @@
   <thead>
     <tr>
       <th>Current Month Concert</th>
-      <th>First</th>
-      <th>Last</th>
-      <th>Handle</th>
+      <th>Max. Attendance</th>
+      <th>Max. Concert Duration [min]</th>
+      <th>Last Concert</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= @band.current_concert %></td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><%= @band.max_attendance %></td>
+      <td><%= @band.max_duration %></td>
+      <td><%= @band.last_concert %></td>
     </tr>
   </tbody>
 </table>
