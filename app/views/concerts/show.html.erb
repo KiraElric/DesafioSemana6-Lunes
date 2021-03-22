@@ -20,5 +20,5 @@
   <%= @concert.band_id %>
 </p>
 
-<%= link_to 'Edit', edit_concert_path(@concert) %> |
-<%= link_to 'Back', concerts_path %>
+<%= link_to 'Edit', edit_band_concert_path(@band, @concert) %> |
+<%= link_to 'Back', band_concerts_path(@band) %>

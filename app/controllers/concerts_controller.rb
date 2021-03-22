@@ -1,9 +1,10 @@
 class ConcertsController < ApplicationController
   before_action :set_concert, only: %i[ show edit update destroy ]
+  before_action :set_band #Visible para todos los metodos y vistas
 
   # GET /concerts or /concerts.json
   def index
-    @concerts = Concert.all
+    @concerts = @band.concerts #Obtener todos los conciertos de una banda
   end
 
   # GET /concerts/1 or /concerts/1.json
@@ -12,7 +13,7 @@ class ConcertsController < ApplicationController
 
   # GET /concerts/new
   def new
-    @concert = Concert.new
+    @concert = @band.concerts.build #Construye el concierto asociado a una banda
   end
 
   # GET /concerts/1/edit
@@ -21,15 +22,13 @@ class ConcertsController < ApplicationController
 
   # POST /concerts or /concerts.json
   def create
-    @concert = Concert.new(concert_params)
+    @concert = @band.concerts.build(concert_params)
 
     respond_to do |format|
       if @concert.save
-        format.html { redirect_to @concert, notice: "Concert was successfully created." }
-        format.json { render :show, status: :created, location: @concert }
+        format.html { redirect_to [@band, @concert], notice: "Concert was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @concert.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,11 +37,9 @@ class ConcertsController < ApplicationController
   def update
     respond_to do |format|
       if @concert.update(concert_params)
-        format.html { redirect_to @concert, notice: "Concert was successfully updated." }
-        format.json { render :show, status: :ok, location: @concert }
+        format.html { redirect_to [@band, @concert], notice: "Concert was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @concert.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,7 +48,7 @@ class ConcertsController < ApplicationController
   def destroy
     @concert.destroy
     respond_to do |format|
-      format.html { redirect_to concerts_url, notice: "Concert was successfully destroyed." }
+      format.html { redirect_to band_concerts_url, notice: "Concert was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -62,8 +59,12 @@ class ConcertsController < ApplicationController
       @concert = Concert.find(params[:id])
     end
 
+    def set_band
+      @band = Band.find(params[:band_id])
+    end
+
     # Only allow a list of trusted parameters through.
     def concert_params
-      params.require(:concert).permit(:attendance, :duration, :date, :band_id)
+      params.require(:concert).permit(:attendance, :duration, :date)
     end
 end

@@ -20,9 +20,9 @@
         <td><%= concert.duration %></td>
         <td><%= concert.date %></td>
         <td><%= concert.band_id %></td>
-        <td><%= link_to 'Show', concert %></td>
-        <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
-        <td><%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@band, concert] %></td> <!-- band_concert_path(@band, concert) -->
+        <td><%= link_to 'Edit', edit_band_concert_path(@band, concert) %></td>
+        <td><%= link_to 'Destroy', [@band, concert], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Concert', new_concert_path %>
+<%= link_to 'New Concert', new_band_concert_path(@band) %>
