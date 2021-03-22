@@ -16,7 +16,7 @@ Band.destroy_all
   puts "Se creo la banda: #{band.name}"
   rand(10..20).times do |i|
     concert = band.concerts.build(attendance: Random.rand(1000...50000), duration: Random.rand(90...240),
-                                  date: Date.today + (i+1).days - (i+2).months - (i).years )
+                                  date: Date.today + (i+1).days - (i).months - (i).years )
     concert.save
     puts "Se realizó el concierto: #{concert.date}"
   end

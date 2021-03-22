@@ -20,5 +20,24 @@
   <%= @band.kind %>
 </p>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th>Current Month Concert</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @band.current_concert %></td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_band_path(@band) %> |
 <%= link_to 'Back', bands_path %>
