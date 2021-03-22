@@ -9,6 +9,7 @@
       <th>Members</th>
       <th>Debut date</th>
       <th>Kind</th>
+      <th>Concert</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= band.members %></td>
         <td><%= band.debut_date %></td>
         <td><%= band.kind %></td>
+        <td><%= band.concert_count %></td>
         <td><%= link_to 'Show', band %></td>
         <td><%= link_to 'Edit', edit_band_path(band) %></td>
         <td><%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>

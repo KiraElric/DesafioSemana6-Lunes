@@ -14,7 +14,7 @@ Band.destroy_all
                     debut_date: Date.today + (i+2).days - (i+3).months - (i+4).years,
                     kind: Band.kinds.keys.sample)
   puts "Se creo la banda: #{band.name}"
-  10.times do |i|
+  rand(10..20).times do |i|
     concert = band.concerts.build(attendance: Random.rand(1000...50000), duration: Random.rand(90...240),
                                   date: Date.today + (i+1).days - (i+2).months - (i).years )
     concert.save
